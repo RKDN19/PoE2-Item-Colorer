@@ -1,0 +1,238 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fontin-SmallCaps', sans-serif;
+    background-color: #222222;
+    color: #ccc;
+    line-height: 2;
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    max-width: 500px;
+    width: 100%;
+    background: #333333;
+    border: 1px solid #000;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    text-align: center;
+    margin-bottom: 16px; /* Add spacing below the main container */
+}
+
+.rgboutputs {
+    width: 500px;
+    padding: 16px;
+    background-color: #1E1E1E;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1;
+    border: 1px solid #444;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.rgboutputs p {
+    margin: 4px 0; /* Small spacing between rows */
+}
+
+
+/* Custom Box Styling with Focused Glow */
+.custom-box {
+    position: relative;
+    display: inline-block;
+     background: linear-gradient(
+            to bottom, 
+            transparent 80%, /* Start transparent at the very top */
+            var(--glow-color, rgba(255, 215, 0, 0.3)) 100%, /* Glow starts */
+            var(--glow-color, rgba(255, 215, 0, 0)) 0%, /* Stronger glow at center */
+            transparent 100% /* Fade towards the bottom corners */
+        ),
+        linear-gradient(
+            to top, 
+            transparent 80%, /* Start transparent at the very bottom */
+            var(--glow-color, rgba(255, 215, 0, 0.3)) 100%, /* Glow starts */
+            var(--glow-color, rgba(255, 215, 0, 0)) 0%, /* Stronger glow at center */
+            transparent 100% /* Fade towards the top corners */
+        ),
+        #0F0F0F; /* Solid dark background color */
+    color: #FFD700; /* Gold text color */
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    line-height: 1.2;
+    padding: 4px 4px;
+    margin: 0;
+    border: none;
+    white-space: nowrap;
+    overflow: hidden; /* Prevent unwanted overflow */
+}
+
+
+/* Top and Bottom Border Effect */
+.custom-box::before,
+.custom-box::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0) 0%, /* Fade at the corners */
+        var(--border-color, #FFD700) 20%, /* Stronger center */
+        var(--border-color, #FFD700) 80%, /* Stronger center */
+        rgba(0, 0, 0, 0) 100% /* Fade at the corners */
+    );
+    z-index: 1;
+}
+
+.custom-box::before {
+    top: 0;
+}
+
+.custom-box::after {
+    bottom: 0;
+}
+
+
+
+
+
+/* Text Styling */
+.box-text {
+    position: relative; /* Keep text above the borders */
+    z-index: 2;
+}
+
+
+/* Color Picker Styling */
+.color-picker {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.color-picker label {
+    font-weight: bold;
+}
+
+.color-picker input[type="color"] {
+    width: 100%;
+    height: 40px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Font Size Slider */
+.font-scaler {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    color: #ccc;
+}
+
+.font-scaler input[type="range"] {
+    flex: 1;
+    -webkit-appearance: none;
+    height: 6px;
+    background: #444;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+}
+
+.font-scaler input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    background: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.font-scaler input[type="range"]::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    background: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+
+/* Copy Button Container */
+.copy-button-container {
+    text-align: center;
+    margin-top: 8px;
+}
+
+/* Copy Button */
+#copy-button {
+    background-color: #FFD700; /* Gold color */
+    color: #000; /* Black text */
+    font-family: 'Fontin-SmallCaps', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 8px 16px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.2s ease;
+}
+
+#copy-button:hover {
+    background-color: #e6be00; /* Slightly darker gold on hover */
+}
+
+
+/* Color Picker Container */
+.color-picker {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Space between rows */
+    align-items: flex-start; /* Align everything to the left */
+    margin-bottom: 16px;
+}
+
+/* Individual Row */
+.color-row {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between color box and label */
+}
+
+/* Color Picker Styling */
+.color-row input[type="color"] {
+    width: 30px; /* Small square size */
+    height: 30px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* Label Styling */
+.color-row label {
+    font-family: 'Fontin-SmallCaps', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ccc;
+}

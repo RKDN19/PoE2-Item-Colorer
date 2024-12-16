@@ -1,0 +1,10 @@
+﻿@font-face {
+    font-family: 'Fontin-SmallCaps';
+    src: url('font/Fontin-SmallCaps.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Fontin-SmallCaps', sans-serif;
+}
